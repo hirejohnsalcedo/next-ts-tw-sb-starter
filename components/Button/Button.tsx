@@ -32,8 +32,7 @@ export type ButtonProps = {
   disabled: ButtonHTMLAttributes<HTMLButtonElement>["disabled"];
 };
 
-const disabledClass =
-  "disabled:bg-grey-5 disabled:shadow-none disabled:text-grey-1";
+const disabledClass = "disabled:bg-grey-5 disabled:shadow-none disabled:text-grey-1";
 const darkThemeWrapper = "bg-primary-purple text-primary-white";
 const lightThemeWrapper = "bg-primary-white text-primary-purple";
 
@@ -45,14 +44,11 @@ export const Button = ({
   type = "primary",
   theme = "dark",
 }: ButtonProps) => {
-  const flexDirection =
-    iconLocation === "before" ? "flex-row" : "flex-row-reverse";
+  const flexDirection = iconLocation === "before" ? "flex-row" : "flex-row-reverse";
   const themeWrapper = theme === "dark" ? darkThemeWrapper : lightThemeWrapper;
   const baseClass = `flex ${flexDirection} ${themeWrapper} items-center px-10 py-4 text-xl leading-6 rounded-full shadow-sm`;
   const hoverClass = `hover:shadow-md ${
-    theme === "dark"
-      ? "hover:bg-primary-purple-semantic-2"
-      : "hover:bg-primary-purple-semantic-4"
+    theme === "dark" ? "hover:bg-primary-purple-semantic-2" : "hover:bg-primary-purple-semantic-4"
   }`;
   const focusClass = `focus:shadow-none focus:outline-none ${theme === "dark" ? "" : "focus:shadow-inner"}`;
   const wrapperClass = `${baseClass} ${hoverClass} ${focusClass} ${disabledClass}`;
@@ -62,10 +58,8 @@ export const Button = ({
 
   if (type === "primary") {
     return (
-      <button aria-label={label} className={wrapperClass} disabled={disabled}>
-        {!icon ? null : (
-          <Icon type={icon} className={iconClass} fill={iconFill} />
-        )}
+      <button type="button" aria-label={label} className={wrapperClass} disabled={disabled}>
+        {!icon ? null : <Icon type={icon} className={iconClass} fill={iconFill} />}
         {label}
       </button>
     );
@@ -75,10 +69,7 @@ export const Button = ({
   return null;
 };
 
-function getIconFill({
-  disabled,
-  theme,
-}: Pick<ButtonProps, "disabled" | "theme">) {
+function getIconFill({ disabled, theme }: Pick<ButtonProps, "disabled" | "theme">) {
   if (disabled) {
     return COLORS.grey1;
   }
