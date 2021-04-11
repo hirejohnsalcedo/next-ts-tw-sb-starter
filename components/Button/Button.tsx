@@ -46,7 +46,7 @@ export const Button = ({
 }: ButtonProps) => {
   const flexDirection = iconLocation === "before" ? "flex-row" : "flex-row-reverse";
   const themeWrapper = theme === "dark" ? darkThemeWrapper : lightThemeWrapper;
-  const baseClass = `flex ${flexDirection} ${themeWrapper} items-center px-10 py-4 text-xl leading-6 rounded-full shadow-sm`;
+  const baseClass = `flex ${flexDirection} ${themeWrapper} items-center px-10 py-4 text-xl leading-6 rounded-full shadow-sm font-bold`;
   const hoverClass = `hover:shadow-md ${
     theme === "dark" ? "hover:bg-primary-purple-semantic-2" : "hover:bg-primary-purple-semantic-4"
   }`;
